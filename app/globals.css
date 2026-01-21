@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+/* =========================================
+   LIGHT / DARK THEME VARIABLES
+========================================= */
+:root {
+  /* ---------- COLORS ---------- */
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* BRAND NAVY BASE (#040435) */
+  --navy-900: #040435;
+  --navy-800: #0b0b5e;
+  --navy-700: #14148a;
+  --navy-600: #1f1fb8;
+  --navy-500: #2d2de0;
+
+  /* PRIMARY COLORS */
+  --primary: var(--navy-900);
+  --primary-soft: var(--navy-700);
+
+  /* GRADIENTS */
+  --primary-gradient: linear-gradient(135deg, var(--navy-900), var(--navy-700), var(--navy-500));
+  --primary-gradient-hover: linear-gradient(135deg, var(--navy-700), var(--navy-500));
+
+  /* BACKGROUND */
+  --bg-main: #f4f6fb;
+  --bg-card: #ffffff;
+  --bg-muted: #eef1f6;
+
+  /* TEXT */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-inverse: #ffffff;
+
+  /* STATUS */
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+  --info: #0284c7;
+
+  /* BORDER / SHADOW / RADIUS */
+  --border: #e5e7eb;
+  --card-padding: 20px;
+  --card-shadow: 0 10px 35px rgba(4, 4, 53, 0.15);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* ANIMATION */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+
+    /* Background overrides */
+    --bg-main: #0a0a0a;
+    --bg-card: #111123;
+    --bg-muted: #1a1a2e;
+
+    /* Text overrides */
+    --text-primary: #ededed;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+
+    /* Borders */
+    --border: #1f2937;
+  }
+}
+
+/* FONT FAMILY */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================
+   UNIVERSAL COMPONENTS
+========================================= */
+@layer components {
+  /* NAVBAR */
+  .navbar {
+    background: var(--primary);
+    color: var(--text-inverse);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+  }
+
+  .navbar-gradient {
+    background: var(--primary-gradient);
+    color: var(--text-inverse);
+  }
+
+  /* BUTTONS */
+  .btn-primary {
+    background-image: var(--primary-gradient);
+    color: var(--text-inverse);
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: var(--transition-smooth);
+  }
+
+  .btn-primary:hover {
+    background-image: var(--primary-gradient-hover);
+    transform: translateY(-1px);
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--card-shadow);
+    padding: var(--card-padding);
+  }
+
+  /* TEXT UTILITIES */
+  .text-primary { color: var(--text-primary); }
+  .text-secondary { color: var(--text-secondary); }
+  .text-muted { color: var(--text-muted); }
+
+  /* STATUS */
+  .text-success { color: var(--success); }
+  .text-warning { color: var(--warning); }
+  .text-danger { color: var(--danger); }
+  .text-info { color: var(--info); }
+
+  /* BACKGROUND UTILITIES */
+  .bg-main { background: var(--bg-main); }
+  .bg-card { background: var(--bg-card); }
+  .bg-muted { background: var(--bg-muted); }
+
+  /* BORDER */
+  .border-default { border: 1px solid var(--border); }
+}
+
+
+@layer components {
+  /* Sidebar parent menu */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-3 rounded-xl text-white transition-colors duration-200;
+  }
+  .sidebar-link:hover {
+    @apply bg-white text-[#040435];
+  }
+
+  /* Sidebar subitems */
+  .sidebar-subitem {
+    @apply block px-4 py-2 text-sm rounded-lg text-slate-300 transition-colors duration-200;
+  }
+  .sidebar-subitem:hover {
+    @apply bg-white text-[#040435];
+  }
+}
+
+@layer components {
+  /* =============================
+     MODERN CANCEL / CLOSE BUTTON
+  ============================== */
+  .btn-cancel-icon {
+    @apply flex items-center justify-center;
+    width: 34px;
+    height: 34px;
+    border-radius: 9999px;
+    background: var(--bg-muted);
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+  }
+
+  .btn-cancel-icon:hover {
+    background: var(--danger);
+    color: #ffffff;
+    transform: rotate(90deg) scale(1.05);
+  }
+
+  .btn-cancel-icon:active {
+    transform: scale(0.95);
+  }
+
+  .btn-cancel-icon:focus-visible {
+    outline: 2px solid var(--danger);
+    outline-offset: 2px;
+  }
+}
+
+/* =========================================
+   SCROLLBAR STYLING
+========================================= */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #475569;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
