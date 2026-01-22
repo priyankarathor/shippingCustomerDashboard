@@ -38,9 +38,7 @@ export default function Sidebar() {
         <button onClick={() => setMobileOpen(true)}>
           <HiOutlineBars3 className="text-2xl" />
         </button>
-        <span className="ml-4 font-bold text-lg tracking-wide">
-          Shiprocket
-        </span>
+        <span className="ml-4 font-bold text-lg tracking-wide">Shiprocket</span>
       </div>
 
       {/* ---------------- Overlay ---------------- */}
@@ -184,9 +182,9 @@ export default function Sidebar() {
           <MenuItem
             icon={<HiOutlineBolt />}
             label="Help & Support"
-            href="/help-support"
+            href="/support"
             open={isDesktopOpen}
-            active={pathname === "/help-support"}
+            active={pathname === "/support"}
           />
         </nav>
       </aside>
