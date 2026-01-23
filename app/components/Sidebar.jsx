@@ -181,6 +181,12 @@ export default function Sidebar() {
 
           <MenuItem
             icon={<HiOutlineBolt />}
+            label="Billing"
+            href="/billing"
+            open={isDesktopOpen}
+          />
+          <MenuItem
+            icon={<HiOutlineBolt />}
             label="Help & Support"
             href="/support"
             open={isDesktopOpen}
