@@ -179,6 +179,24 @@ export default function Sidebar() {
             <SubItem label="All Shipments" href="/weight/all-shipments" />
           </Dropdown>
 
+          <Dropdown
+            icon={<HiOutlineScale />}
+            label="Tools"
+            open={openMenu === "tools"}
+            sidebarOpen={isDesktopOpen}
+            onMouseEnter={() => isDesktopOpen && setOpenMenu("tools")}
+            onMouseLeave={() => isDesktopOpen && setOpenMenu(null)}
+            onClick={() => toggleMenu("tools")}
+          >
+            <SubItem
+              label="Rate Calculator"
+              href="/tools/RateCalculator"
+              active={pathname.includes("RateCalculator")}
+            />
+            <SubItem label="Rate Card" href="/tools/RateCard" />
+            <SubItem label="All Shipments" href="/weight/all-shipments" />
+          </Dropdown>
+
           <MenuItem
             icon={<HiOutlineBolt />}
             label="Billing"
