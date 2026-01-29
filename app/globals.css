@@ -20,8 +20,17 @@
   --primary-soft: var(--navy-700);
 
   /* GRADIENTS */
-  --primary-gradient: linear-gradient(135deg, var(--navy-900), var(--navy-700), var(--navy-500));
-  --primary-gradient-hover: linear-gradient(135deg, var(--navy-700), var(--navy-500));
+  --primary-gradient: linear-gradient(
+    135deg,
+    var(--navy-900),
+    var(--navy-700),
+    var(--navy-500)
+  );
+  --primary-gradient-hover: linear-gradient(
+    135deg,
+    var(--navy-700),
+    var(--navy-500)
+  );
 
   /* BACKGROUND */
   --bg-main: #f4f6fb;
@@ -132,25 +141,46 @@ body {
   }
 
   /* TEXT UTILITIES */
-  .text-primary { color: var(--text-primary); }
-  .text-secondary { color: var(--text-secondary); }
-  .text-muted { color: var(--text-muted); }
+  .text-primary {
+    color: var(--text-primary);
+  }
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+  .text-muted {
+    color: var(--text-muted);
+  }
 
   /* STATUS */
-  .text-success { color: var(--success); }
-  .text-warning { color: var(--warning); }
-  .text-danger { color: var(--danger); }
-  .text-info { color: var(--info); }
+  .text-success {
+    color: var(--success);
+  }
+  .text-warning {
+    color: var(--warning);
+  }
+  .text-danger {
+    color: var(--danger);
+  }
+  .text-info {
+    color: var(--info);
+  }
 
   /* BACKGROUND UTILITIES */
-  .bg-main { background: var(--bg-main); }
-  .bg-card { background: var(--bg-card); }
-  .bg-muted { background: var(--bg-muted); }
+  .bg-main {
+    background: var(--bg-main);
+  }
+  .bg-card {
+    background: var(--bg-card);
+  }
+  .bg-muted {
+    background: var(--bg-muted);
+  }
 
   /* BORDER */
-  .border-default { border: 1px solid var(--border); }
+  .border-default {
+    border: 1px solid var(--border);
+  }
 }
-
 
 @layer components {
   /* Sidebar parent menu */
