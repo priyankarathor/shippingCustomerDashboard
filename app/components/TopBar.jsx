@@ -81,7 +81,7 @@ export default function TopBar() {
               <span className="text-[10px] text-gray-500 border px-2 py-0.5 rounded-md whitespace-nowrap">
                 Ctrl + K
               </span>
-              <Mic className="w-4 h-4 text-blue-600" />
+              <Mic className="w-4 h-4 text-blue-950" />
             </div>
 
             {/* ================= BUSINESS SCORE ================= */}
@@ -112,13 +112,13 @@ export default function TopBar() {
                 </span>
               </div>
 
-              <span className="font-medium text-blue-600 whitespace-nowrap">
+              <span className="font-medium text-blue-950 whitespace-nowrap">
                 Business Success Score
               </span>
 
               {/* 🔹 Hover Box */}
               <div className="absolute top-10 left-1/2 -translate-x-1/2 hidden group-hover:block z-50">
-                <div className="bg-blue-900 text-white text-xs rounded-lg px-4 py-3 w-64 shadow-lg">
+                <div className="bg-blue-950 text-white text-xs rounded-lg px-4 py-3 w-64 shadow-lg">
                   Start protecting your business by activating services that
                   secure revenue, engage buyers, and improve cash flow.
                 </div>
@@ -132,7 +132,7 @@ export default function TopBar() {
             <div className="relative group">
               <div className="flex items-center gap-2 bg-purple-50 px-3 py-1.5 rounded-full cursor-pointer">
                 <span className="text-xs font-medium">₹0</span>
-                <button className="bg-blue-600 text-white p-1 rounded-full">
+                <button className="bg-blue-950 text-white p-1 rounded-full">
                   <Plus className="w-4 h-4" />
                 </button>
               </div>
@@ -149,14 +149,14 @@ export default function TopBar() {
               <RefreshCw className="w-4 h-4" />
             </button>
 
-            <button className="flex items-center gap-1 text-blue-600 text-xs font-medium">
+            <button className="flex items-center gap-1 text-blue-950 text-xs font-medium">
               <HelpCircle className="w-4 h-4" />
               Need Help
             </button>
 
             {/* ================= ZAP ACTIONS ================= */}
             <div className="relative group">
-              <button className="p-2 rounded-full hover:bg-gray-100 text-blue-600">
+              <button className="p-2 rounded-full hover:bg-gray-100 text-blue-950">
                 <Zap className="w-4 h-4" />
               </button>
 
@@ -167,7 +167,7 @@ export default function TopBar() {
                     {/* Add Order */}
                     <div className="bg-slate-50 rounded-lg p-4 hover:bg-slate-100 cursor-pointer">
                       <div className="mx-auto mb-2 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
-                        <PackagePlus className="w-5 h-5 text-blue-600" />
+                        <PackagePlus className="w-5 h-5 text-blue-950" />
                       </div>
                       Add an Order
                     </div>
@@ -183,7 +183,7 @@ export default function TopBar() {
                     {/* Rate Calculator */}
                     <div className="bg-slate-50 rounded-lg p-4 hover:bg-slate-100 cursor-pointer">
                       <div className="mx-auto mb-2 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                        <Calculator className="w-5 h-5 text-indigo-600" />
+                        <Calculator className="w-5 h-5 text-indigo-950" />
                       </div>
                       Rate Calculator
                     </div>
@@ -205,7 +205,7 @@ export default function TopBar() {
                     </div>
                   </div>
 
-                  <p className="mt-4 text-center text-xs text-blue-600 cursor-pointer">
+                  <p className="mt-4 text-center text-xs text-blue-0 cursor-pointer">
                     Close Action Descriptions
                   </p>
                 </div>
@@ -225,7 +225,7 @@ export default function TopBar() {
             <div ref={profileRef} className="relative">
               <div
                 onClick={() => setOpenProfile((prev) => !prev)}
-                className="h-8 w-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-semibold cursor-pointer select-none"
+                className="h-8 w-8 rounded-full bg-blue-950 text-white flex items-center justify-center text-sm font-semibold cursor-pointer select-none"
               >
                 A
               </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, FileText, Check, Plane } from "lucide-react";
+import { COLORS } from "@/app/styles/colors";
 
 const forwardCouriers = [
   "Amazon",
@@ -81,7 +82,7 @@ export default function RateCardPage() {
               closeAllTopDropdowns();
               setPlanOpen((v) => !v);
             }}
-            className="border rounded-md px-4 py-2 text-sm flex items-center gap-2 bg-white"
+            className={`border ${COLORS.BORDER_DEFAULT} rounded-md px-4 py-2 text-sm flex items-center gap-2 bg-white`}
           >
             <span>
               Plan : <span className="font-semibold">{activePlan}</span>
@@ -96,7 +97,9 @@ export default function RateCardPage() {
           </button>
 
           {planOpen && (
-            <div className="absolute right-0 mt-2 w-44 bg-white border rounded-lg shadow-lg text-sm z-50">
+            <div
+              className={`absolute right-0 mt-2 w-44 bg-white border ${COLORS.BORDER_DEFAULT} rounded-lg shadow-lg text-sm z-50`}
+            >
               {plans.map((plan) => (
                 <button
                   key={plan}
@@ -118,14 +121,14 @@ export default function RateCardPage() {
       </div>
 
       {/* ================= TOP TABS ================= */}
-      <div className="flex gap-6 border-b text-sm">
+      <div className={`flex gap-6 border-b ${COLORS.BORDER_DEFAULT} text-sm`}>
         {["domestic", "international"].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab as any)}
             className={`pb-2 font-semibold capitalize ${
               activeTab === tab
-                ? "border-b-2 border-blue-600 text-blue-600"
+                ? "border-b-2 border-blue-950 text-blue-950"
                 : "text-gray-500"
             }`}
           >
@@ -147,8 +150,8 @@ export default function RateCardPage() {
             }}
             className={`px-4 py-1.5 rounded-md font-medium ${
               activeType === type
-                ? "bg-blue-50 text-blue-600 border border-blue-600"
-                : "border text-gray-600"
+                ? "bg-blue-50 text-blue-950 border border-blue-950"
+                : `border ${COLORS.BORDER_DEFAULT} text-gray-600`
             }`}
           >
             {type.charAt(0).toUpperCase() + type.slice(1)}
@@ -157,7 +160,7 @@ export default function RateCardPage() {
 
         <a
           href="#"
-          className="ml-3 text-blue-600 underline text-xs font-medium"
+          className="ml-3 text-blue-950 underline text-xs font-medium"
         >
           Click here for India Post Rates
         </a>
@@ -168,10 +171,10 @@ export default function RateCardPage() {
         <div className="flex flex-col items-center justify-center h-[60vh] bg-white rounded-xl">
           <div className="relative mb-6">
             <div className="absolute inset-0 rounded-full bg-blue-100 blur-2xl" />
-            <Plane className="relative w-16 h-16 text-blue-600 rotate-[-20deg]" />
+            <Plane className="relative w-16 h-16 text-blue-950 rotate-[-20deg]" />
           </div>
 
-          <h2 className="text-3xl font-bold text-blue-600 mb-2">
+          <h2 className="text-3xl font-bold text-blue-950 mb-2">
             Coming Soon!
           </h2>
           <p className="text-sm text-gray-500">
@@ -227,7 +230,7 @@ export default function RateCardPage() {
                   closeAllTopDropdowns();
                   setSortOpen((v) => !v);
                 }}
-                className="flex items-center gap-2 bg-white border rounded-md px-4 py-2 text-sm"
+                className={`flex items-center gap-2 bg-white border ${COLORS.BORDER_DEFAULT} rounded-md px-4 py-2 text-sm`}
               >
                 Sort by: Courier Name ({sortBy === "az" ? "A–Z" : "Z–A"})
                 <ChevronDown
@@ -237,7 +240,9 @@ export default function RateCardPage() {
               </button>
 
               {sortOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-lg text-sm">
+                <div
+                  className={`absolute right-0 mt-2 w-64 bg-white border ${COLORS.BORDER_DEFAULT} rounded-lg shadow-lg text-sm`}
+                >
                   <button
                     onClick={() => {
                       setSortBy("az");
@@ -265,7 +270,10 @@ export default function RateCardPage() {
           </div>
 
           {/* ================= TABLE HEADER ================= */}
-          <div className="bg-white rounded-xl p-3">
+          {/* <div className="bg-white rounded-xl p-3"> */}
+          <div
+            className={`bg-white rounded-xl p-3 border ${COLORS.BORDER_DEFAULT}`}
+          >
             <div className="grid grid-cols-[2fr_1fr_1fr_repeat(5,1fr)_1.5fr_0.8fr] text-xs font-semibold text-gray-600 text-center">
               <div className="text-left">Couriers</div>
               <div>Mode</div>
@@ -283,7 +291,7 @@ export default function RateCardPage() {
           {/* ================= DOCUMENT ================= */}
           {activeType === "document" ? (
             <div className="bg-white rounded-xl py-24 flex flex-col items-center text-gray-500">
-              <FileText className="w-12 h-12 text-blue-600 mb-4" />
+              <FileText className="w-12 h-12 text-blue-950 mb-4" />
               <p className="text-sm font-medium">
                 We could not find any data for the applied filters.
               </p>
@@ -294,7 +302,8 @@ export default function RateCardPage() {
               {couriers.map((courier) => (
                 <div
                   key={courier}
-                  className="bg-white rounded-xl overflow-hidden"
+                  // className="bg-white rounded-xl overflow-hidden"
+                  className={`bg-white rounded-xl overflow-hidden border ${COLORS.BORDER_DEFAULT}`}
                 >
                   <button
                     onClick={() => toggleCourierRow(courier)}
@@ -310,7 +319,7 @@ export default function RateCardPage() {
                   </button>
 
                   {openCouriers.has(courier) && (
-                    <div className="divide-y">
+                    <div className={`divide-y ${COLORS.DIVIDER_DEFAULT}`}>
                       {Array.from({ length: 4 }).map((_, i) => (
                         <div
                           key={i}
@@ -371,14 +380,16 @@ function Dropdown({
     <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 bg-white border rounded-md px-4 py-2 text-sm"
+        className={`flex items-center gap-2 bg-white border ${COLORS.BORDER_DEFAULT} rounded-md px-4 py-2 text-sm`}
       >
         {label}
         <ChevronDown size={16} />
       </button>
 
       {open && (
-        <div className="absolute z-50 mt-2 w-56 bg-white border rounded-lg shadow-lg">
+        <div
+          className={`absolute z-50 mt-2 w-56 bg-white border ${COLORS.BORDER_DEFAULT} rounded-lg shadow-lg`}
+        >
           <div className="max-h-56 overflow-y-auto p-3 space-y-2 text-sm">
             {items.map((item) => (
               <label key={item} className="flex items-center gap-2">
@@ -392,10 +403,12 @@ function Dropdown({
             ))}
           </div>
 
-          <div className="flex justify-between border-t p-3">
+          <div
+            className={`flex justify-between border-t ${COLORS.BORDER_DEFAULT} p-3`}
+          >
             <button
               onClick={() => setSelected([])}
-              className="px-4 py-1.5 text-sm border rounded-md text-blue-600"
+              className={`px-4 py-1.5 text-sm border ${COLORS.BORDER_DEFAULT} rounded-md text-blue-600`}
             >
               Clear
             </button>

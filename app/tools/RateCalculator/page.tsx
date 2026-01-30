@@ -1,5 +1,7 @@
 "use client";
 
+import { COLORS } from "@/app/styles/colors";
+
 import { useState } from "react";
 
 export default function RateCalculatorPage() {
@@ -12,17 +14,17 @@ export default function RateCalculatorPage() {
   );
 
   return (
-    <div className="p-8 bg-gray-50 min-h-screen">
+    <div className="p-8 bg-gray-50 min-h-screen mt-10">
       {/* ================= HEADER ================= */}
       <h1 className="text-2xl font-bold mb-6">Shipping Rate Calculator</h1>
 
       {/* ================= TABS ================= */}
-      <div className="flex gap-8 border-b mb-8">
+      <div className={`flex gap-8 border-b ${COLORS.BORDER_DEFAULT} mb-8`}>
         <button
           onClick={() => setActiveTab("domestic")}
           className={`pb-3 font-semibold ${
             activeTab === "domestic"
-              ? "border-b-2 border-blue-600 text-blue-600"
+              ? "border-b-2 border-blue-950 text-blue-950"
               : "text-gray-500"
           }`}
         >
@@ -33,7 +35,7 @@ export default function RateCalculatorPage() {
           onClick={() => setActiveTab("international")}
           className={`pb-3 font-semibold ${
             activeTab === "international"
-              ? "border-b-2 border-blue-600 text-blue-600"
+              ? "border-b-2 border-blue-950 text-blue-950"
               : "text-gray-500"
           }`}
         >
@@ -63,7 +65,9 @@ export default function RateCalculatorPage() {
                 <label className="font-semibold block mb-2">
                   Shipment Purpose
                 </label>
-                <select className="w-full border rounded-md px-3 py-2">
+                <select
+                  className={`w-full border ${COLORS.BORDER_DEFAULT} rounded-md px-3 py-2`}
+                >
                   <option>Gift</option>
                   <option>Commercial</option>
                   <option>Sample</option>
@@ -78,10 +82,12 @@ export default function RateCalculatorPage() {
                   </label>
                   <div className="flex">
                     <input
-                      className="border rounded-l-md px-3 py-2 w-full"
+                      className={`border ${COLORS.BORDER_DEFAULT} rounded-l-md px-3 py-2 w-full`}
                       placeholder="0.00"
                     />
-                    <span className="border border-l-0 rounded-r-md px-4 flex items-center text-gray-500">
+                    <span
+                      className={`border ${COLORS.BORDER_DEFAULT} border-l-0 rounded-r-md px-4 flex items-center text-gray-500`}
+                    >
                       KG
                     </span>
                   </div>
@@ -101,17 +107,17 @@ export default function RateCalculatorPage() {
               </div>
 
               <div className="flex gap-4 pt-4">
-                <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold">
+                <button className="bg-blue-950 text-white px-8 py-3 rounded-lg font-semibold">
                   Calculate
                 </button>
-                <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold">
+                <button className="border border-blue-950 text-blue-950 px-8 py-3 rounded-lg font-semibold">
                   Reset
                 </button>
               </div>
             </>
           )}
 
-          {/* ================= DOMESTIC (UNCHANGED) ================= */}
+          {/* ================= DOMESTIC  ================= */}
           {activeTab === "domestic" && (
             <>
               {/* Shipment Type */}
@@ -158,10 +164,13 @@ export default function RateCalculatorPage() {
                   </label>
                   <div className="flex">
                     <input
-                      className="border rounded-l-md px-3 py-2 w-full"
+                      className={`border ${COLORS.BORDER_DEFAULT} rounded-l-md px-3 py-2 w-full`}
                       placeholder="0.00"
                     />
-                    <span className="border border-l-0 rounded-r-md px-4 flex items-center text-gray-500">
+
+                    <span
+                      className={`border ${COLORS.BORDER_DEFAULT} border-l-0 rounded-r-md px-4 flex items-center text-gray-500`}
+                    >
                       KG
                     </span>
                   </div>
@@ -234,10 +243,10 @@ export default function RateCalculatorPage() {
               )}
 
               <div className="flex gap-4 pt-4">
-                <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold">
+                <button className="bg-blue-950 text-white px-8 py-3 rounded-lg font-semibold">
                   Calculate
                 </button>
-                <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold">
+                <button className="border border-blue-950 text-blue-950 px-8 py-3 rounded-lg font-semibold">
                   Reset
                 </button>
               </div>
@@ -262,7 +271,7 @@ export default function RateCalculatorPage() {
       {/* ================= TERMS ================= */}
       <div className="bg-white rounded-xl p-8 mt-10">
         <h3 className="font-semibold mb-4">Terms & Conditions</h3>
-        <ul className="text-sm text-gray-600 space-y-2 list-disc ml-5">
+        <ul className="text-sm text-gray-600 space-y-2 list-disc ml-5 marker:text-blue-950">
           <li>
             Freight charges (GST inclusive) are based on higher of dead or
             volumetric weight.
@@ -295,12 +304,14 @@ function Input({
       <label className="font-semibold block mb-2">{label}</label>
       <div className="flex">
         {prefix && (
-          <span className="border rounded-l-md px-3 flex items-center text-gray-500">
+          <span
+            className={`border ${COLORS.BORDER_DEFAULT} rounded-l-md px-3 flex items-center text-gray-500`}
+          >
             {prefix}
           </span>
         )}
         <input
-          className={`border px-3 py-2 w-full ${
+          className={`border ${COLORS.BORDER_DEFAULT} px-3 py-2 w-full ${
             prefix ? "rounded-r-md border-l-0" : "rounded-md"
           }`}
           placeholder={placeholder}
@@ -312,7 +323,9 @@ function Input({
 
 function DimInput({ placeholder }: { placeholder: string }) {
   return (
-    <div className="flex border rounded-md overflow-hidden">
+    <div
+      className={`flex border ${COLORS.BORDER_DEFAULT} rounded-md overflow-hidden`}
+    >
       <input className="w-16 px-2 py-2" placeholder={placeholder} />
       <span className="px-3 flex items-center text-gray-400 border-l">CM</span>
     </div>
@@ -321,7 +334,7 @@ function DimInput({ placeholder }: { placeholder: string }) {
 
 function LocationCard({ title }: { title: string }) {
   return (
-    <div className="w-full text-center border-2 border-dotted border-blue-400 rounded-lg p-6">
+    <div className="w-full text-center border-2 border-dotted border-blue-950 rounded-lg p-6">
       <h4 className="font-semibold mb-1">{title}</h4>
       <p className="text-gray-400">
         {title === "Destination Country" ? "Country" : "City, State"}
